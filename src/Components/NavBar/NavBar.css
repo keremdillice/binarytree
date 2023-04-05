@@ -1,0 +1,32 @@
+header {
+    background-color: black;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    line-height: 60px;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+
+} 
+
+header p {
+    color: white;
+    border: 2px solid white; /* Add a 1px white border */
+    padding: 5px; /* Add some padding to give it some space */
+    width: 100px; /* Set the width and height to make it a square */
+    height: 30px;
+    line-height: 30px; /* Center the text vertically */
+}
+
+header p:hover {
+    background-color: white;
+    cursor: pointer;
+    color: black;
+}
+

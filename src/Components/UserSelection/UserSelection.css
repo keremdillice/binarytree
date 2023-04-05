@@ -1,0 +1,45 @@
+.selection {
+    background-color: black;
+    color: white;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    line-height: 60px;
+    gap: 10px;
+    justify-content: center;
+    display: flex;
+} 
+
+.selection p {
+    color: yellow;
+    font-weight: bold;
+}
+
+.selection span {
+    color: white
+}
+
+.correct {
+    background-color: green;
+    color: white;
+    position: fixed;
+    top: 120px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    line-height: 60px;
+    gap: 10px;
+    justify-content: center;
+    display: flex;
+} 
+
+.selection p {
+    color: yellow;
+    font-weight: bold;
+}
+
+.selection span {
+    color: white
+}
