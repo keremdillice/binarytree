@@ -94,7 +94,7 @@ right connector from last child*/
   height: 25px;
   width: 25px;
   text-decoration: none;
-  color: yellow;
+  color: purple;
   font-family: arial, verdana, tahoma;
   font-size: 22px;
   display: inline-block;
@@ -125,3 +125,6 @@ right connector from last child*/
 .value {
   cursor: pointer;
 }
+
+
+

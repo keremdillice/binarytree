@@ -1,0 +1,66 @@
+.auth button {
+    cursor: pointer;
+    background: white;
+    color: black;
+    outline: none !important;
+    border: none !important;
+    padding: 8px 14px;
+}
+
+.auth button:active{
+    background: #999
+}
+
+.auth .auth-popup {
+    position: absolute;
+    width: 200px;
+    background: white;
+    color: black;
+    top: 60px;
+    z-index: 999;
+    padding: 10px 32px;
+}
+
+.auth .auth-popup input {
+    color:black;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #777;
+    padding: 4px 8px;
+    margin: 0;
+    background: transparent;
+}
+
+.auth .auth-popup .auth-title {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.auth .auth-popup .auth-title span {
+    text-align: left;
+    margin: 0;
+    padding-left: 6px;
+    font-weight: 400;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.auth .auth-popup button {
+    background: black;
+    color: white;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.auth .auth-popup .auth-close {
+    width: fit-content;
+    font-size: 0.9rem;
+    color: #777;
+    text-decoration: underline;
+    cursor: pointer;
+}

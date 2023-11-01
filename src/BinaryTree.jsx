@@ -34,7 +34,6 @@ function BinaryTree({ root, order, handleClick, userSelection, truthState }) {
       <div className="tree">
         {root && <BinaryTreeNode {...root} result={order} />}
       </div>
-
     </>
   );
 }

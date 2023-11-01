@@ -1,3 +1,4 @@
+/* Existing footer styles */
 footer {
     text-align: center;
     position: fixed;
@@ -8,14 +9,70 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    background-color: white;
 }
 
 footer p {
-    color: white;
+    color: black;
     text-decoration: none;
+    cursor: default;
 }
 
-footer p:hover {
-    text-decoration: underline;
+.key {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 0 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    background-color: #f7f7f7;
+    font-family: monospace;
+}
+
+footer input[type="range"] {
+    width: 60%;
+    margin: 0 10px;
+    appearance: none; /* This is to remove default browser styling */
+    background: black; /* This is the track background */
+    height: 4px;
+    outline: none;
     cursor: pointer;
-}  
+}
+
+footer input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: black; /* This is the handle color */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+footer input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+footer input[type="range"]:hover::-webkit-slider-thumb {
+    background: #b0b0b0;
+}
+
+footer input[type="range"]:hover::-moz-range-thumb {
+    background: #b0b0b0;
+}
+
+footer div {
+    color: black;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20%;
+    height: 80%;
+    background-color: white;
+    text-decoration: none;
+    cursor: default;
+}

@@ -5,11 +5,12 @@ import { Footer } from "./Components/Footer/Footer";
 import { NavBar } from "./Components/NavBar/NavBar";
 import UserSelection from "./Components/UserSelection/UserSelection";
 function App() {
-  const [tree, setTree] = useState(generateTree(8));
+  const [tree, setTree] = useState(generateTree(5));
   const [order, setOrder] = useState([]);
   const [userSelection, setUserSelection] = useState([]);
   const [truthState, setTruthState] = useState(null);
   const [mode, setMode] = useState("preorder");
+  const [difficulty, setDifficulty] = useState(3);
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyPress);
@@ -18,27 +19,31 @@ function App() {
     };
   });
 
+  useEffect(() => {
+    setTree(generateTree(difficulty * 2.3));
+  }, [difficulty]); // This effect runs whenever the difficulty changes
+
   const handleKeyPress = (event) => {
     if (event.code === "Space") {
-      setTree(generateTree(8));
+      setTree(generateTree(difficulty * 2.3));
       // do something when spacebar is pressed
     }
-  }
+  };
 
   useEffect(() => {
     let result = null;
-    if (mode === 'preorder') {
+    if (mode === "preorder") {
       result = traversePreOrder(tree);
-    } else if (mode === 'inorder') {
+    } else if (mode === "inorder") {
       result = traverseInOrder(tree);
     } else {
       result = traversePostOrder(tree);
     }
-    
+
     setOrder(result);
     setUserSelection([]);
     setTruthState(null);
-    console.log('newtree')
+    console.log("newtree");
   }, [tree]);
 
   useEffect(() => {
@@ -51,7 +56,6 @@ function App() {
       }
     }
   }, [userSelection]);
-
 
   function arraysEqual(arr1, arr2) {
     // Check if the arrays have the same length
@@ -77,8 +81,8 @@ function App() {
   function traverseInOrder(currentNode, result = []) {
     if (currentNode !== null) {
       traverseInOrder(currentNode.left, result);
-      result.push({'uuid': currentNode.uuid, 'value': currentNode.value});
-      traverseInOrder(currentNode.right, result)
+      result.push({ uuid: currentNode.uuid, value: currentNode.value });
+      traverseInOrder(currentNode.right, result);
     }
     return result;
   }
@@ -87,7 +91,7 @@ function App() {
     //if the currentNode IS NOT EQUAL to null
     if (currentNode !== null) {
       //print its value
-      result.push({'uuid': currentNode.uuid, 'value': currentNode.value});
+      result.push({ uuid: currentNode.uuid, value: currentNode.value });
       //make recursive call to the left subtree
       traversePreOrder(currentNode.left, result);
       //make recursive call to the right subtree
@@ -100,7 +104,7 @@ function App() {
     if (currentNode !== null) {
       traversePostOrder(currentNode.left, result);
       traversePostOrder(currentNode.right, result);
-      result.push({'uuid': currentNode.uuid, 'value': currentNode.value});
+      result.push({ uuid: currentNode.uuid, value: currentNode.value });
     }
     return result;
   }
@@ -112,7 +116,7 @@ function App() {
     this.uuid = crypto.randomUUID();
   }
 
-  function generateTree(maxDepth, minVal = 1, maxVal = 50, parentValue = null) {
+  function generateTree(maxDepth, minVal = 1, maxVal = 99, parentValue = null) {
     if (maxVal < minVal) {
       [minVal, maxVal] = [maxVal, minVal];
     }
@@ -150,8 +154,27 @@ function App() {
 
   return (
     <>
-      <NavBar mode={mode} setMode={setMode} setTree={setTree} generateTree={generateTree} userSelection={userSelection} setUserSelection={setUserSelection} order={order} setOrder={setOrder} traverseInOrder={traverseInOrder} traversePreOrder={traversePreOrder} traversePostOrder={traversePostOrder} tree={tree} setTruthState={setTruthState} truthState={truthState}/>
-      <UserSelection selection={userSelection} truthState={truthState} order={order}/>
+      <NavBar
+        mode={mode}
+        setMode={setMode}
+        setTree={setTree}
+        generateTree={generateTree}
+        userSelection={userSelection}
+        setUserSelection={setUserSelection}
+        order={order}
+        setOrder={setOrder}
+        traverseInOrder={traverseInOrder}
+        traversePreOrder={traversePreOrder}
+        traversePostOrder={traversePostOrder}
+        tree={tree}
+        setTruthState={setTruthState}
+        truthState={truthState}
+      />
+      <UserSelection
+        selection={userSelection}
+        truthState={truthState}
+        order={order}
+      />
       <BinaryTree
         root={tree}
         order={order}
@@ -159,7 +182,7 @@ function App() {
         userSelection={userSelection}
         truthState={truthState}
       />
-      <Footer/>
+      <Footer setDifficulty={setDifficulty}/>
     </>
   );
 }

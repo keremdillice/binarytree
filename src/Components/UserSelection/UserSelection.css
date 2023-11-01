@@ -1,7 +1,7 @@
 .selection {
     background-color: black;
     color: white;
-    position: fixed;
+    position: absolute;
     top: 60px;
     left: 0;
     right: 0;
